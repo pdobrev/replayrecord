@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Test Recording</title>
+    </head>
+    <style>
+    </style>
+
+    <body>
+        <canvas id="canvas" width="300" height="300">
+        </canvas>
+
+        <script data-main="scripts/main" src="scripts/vendor/require.js"></script>
+        <script type="text/javascript">
+            require.config({
+                urlArgs: "bust=" + (new Date()).getTime()
+            });
+        </script>
+    </body>
+</html>
+
