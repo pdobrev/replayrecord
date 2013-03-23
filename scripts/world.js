@@ -1,4 +1,8 @@
-define(['ball'], function (Ball) {
+if (typeof define !== 'function') {
+    var define = require('amdefine')(module);
+}
+
+define(['./ball.js'], function (Ball) {
     var World = {};
     
     World.balls = [];

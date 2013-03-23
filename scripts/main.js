@@ -1,23 +1,18 @@
-define(['world'], function (World) {
-    var stepSize = 1000 / 30;
+if (typeof define !== 'function') {
+    var define = require('amdefine')(module);
+}
 
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
+define(['./scripts/game.js'], function (Game) {
 
-    var gameLoop = setInterval(function () {
-        if (World.hasMoreAnimation()) {
-            World.step(stepSize);
+    var canvas = document.getElementById('canvas'),
+        texture = new Image();
 
-            // drawing scene
-            canvas.width = canvas.width;
-            for (var i = 0; i < 2; i++) {
-                ctx.drawImage(World.balls[i].image, World.balls[i].position.x, World.balls[i].position.y);
-            }
-        } else {
-            clearInterval(gameLoop);
-        }
-
-    }, stepSize);
-
+    texture.src = 'imgs/ball.png';
+    texture.onload = function () {
+        var game = new Game({
+            canvas: canvas,
+            texture: texture
+        });
+        game.start();
+    };
 });
-

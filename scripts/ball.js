@@ -1,7 +1,11 @@
+if (typeof define !== 'function') {
+    var define = require('amdefine')(module);
+}
+
 define(function () {
     var Ball = function () {
-        this.image = new Image();
-        this.image.src = 'imgs/ball.png';
+
+        this.image = undefined;
 
         this.position = {
             x: 0,
